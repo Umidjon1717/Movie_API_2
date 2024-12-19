@@ -20,6 +20,10 @@ const Latest = () => {
       .catch((err) => console.error("Error fetching genres:", err));
   }, []);
 
+  useEffect(()=>{
+    setPage(1)
+  }, [selectedGenre])
+
   useEffect(() => {
     request("/discover/movie", {
       params: {
