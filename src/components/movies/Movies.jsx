@@ -10,6 +10,26 @@ import { request } from "@/api";
 
 const Movies = ({ data }) => {
   console.log(data);
+  if (!data) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="lds-spinner">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>

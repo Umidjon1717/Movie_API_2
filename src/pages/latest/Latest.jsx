@@ -13,6 +13,9 @@ const Latest = () => {
   const [genres, setGenres] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState([]);
 
+
+  
+
   useEffect(() => {
     request
       .get("/genre/movie/list")
