@@ -1,4 +1,10 @@
 import React from "react";
+import logo from "@/assets/images/logo.svg";
+import store from "@/assets/images/store.png";
+import play from "@/assets/images/play.png";
+import inst from "@/assets/images/instagram-line.png";
+import tube from "@/assets/images/youtube-line.png";
+import face from "@/assets/images/facebook-circle-line.png";
 
 const Footer = () => {
   return (
@@ -6,7 +12,7 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap justify-between items-center mb-6">
           <div className="mb-4 md:mb-0">
-            <h1 className="text-2xl font-bold">BrandLogo</h1>
+            <img className="mb-4" src={logo} alt="" />
             <p className="text-sm text-gray-400">
               Creating a better experience, one step at a time.
             </p>
@@ -50,34 +56,25 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-3">Quick Links</h3>
             <ul>
               <li className="mb-2">
-                <a href="#" className="hover:opacity-80">
-                  About Us
-                </a>
+                <img src={store} alt="" />
               </li>
               <li className="mb-2">
-                <a href="#" className="hover:opacity-80">
-                  Services
-                </a>
+                <img src={play} alt="" />
               </li>
-              <li className="mb-2">
-                <a href="#" className="hover:opacity-80">
-                  Blog
-                </a>
-              </li>
-              <li className="mb-2">
-                <a href="#" className="hover:opacity-80">
-                  Contact
-                </a>
-              </li>
+              
             </ul>
           </div>
 
           <div>
             <h3 className="text-lg font-bold mb-3">Contact Us</h3>
             <ul>
+              <li className="mb-2 text-[#C61F1F]">+123 456 7890 </li>
               <li className="mb-2">Email: support@brandlogo.com</li>
-              <li className="mb-2">Phone: +123 456 7890</li>
-              <li className="mb-2">Address: 123 Street, City, Country</li>
+              <div className="flex gap-3">
+              <img src={inst} alt="" />
+              <img src={face} alt="" />
+              <img src={tube} alt="" />
+              </div>
             </ul>
           </div>
 
