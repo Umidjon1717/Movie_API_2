@@ -1,23 +1,40 @@
 import { request } from "@/api";
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react";
+import { useLocation, useParams } from "react-router-dom";
 import Footer from "../footer/Footer";
 import Header from "../header/Header";
 
-const Detail = () => {
+const Detail = () => { 
   const { id } = useParams();
-  const [movie, setMovie] = useState(null);
+  const location=useLocation()
+  const [movie, setMovie] = useState(location.state?.movie || null);
+  const scrollPosition = useRef(0);
 
   useEffect(() => {
-    request
-      .get(`/movie/${id}`)
-      .then((response) => {
-        setMovie(response.data);
-      })
-      .catch((error) => {
-        console.error("Failed to fetch movie details:", error);
-      });
-  }, [id]);
+    if (!movie) {
+      window.scrollTo(0, 0);
+      request
+        .get(`/movie/${id}`)
+        .then((response) => {
+          setMovie(response.data);
+        })
+        .catch((error) => {
+          console.error("Failed to fetch movie details:", error);
+        });
+    }
+  }, [id, movie]);
+
+  useEffect(() => {
+    if (location.state?.scrollPosition) {
+      window.scrollTo(0, location.state?.scrollPosition);
+    }
+  }, [location.state]);
+
+  const handleBackClick = () => {
+    scrollPosition.current = window.scrollY;
+    location.state = { ...location.state, scrollPosition: scrollPosition.current };
+    window.history.back();
+  };
 
   if (!movie) {
     return (
@@ -55,6 +72,7 @@ const Detail = () => {
     vote_count,
     homepage,
   } = movie;
+
 
   return (
     <div className="bg-black">
@@ -155,6 +173,14 @@ const Detail = () => {
                   </a>
                 </div>
               )}
+              <div>
+                <button
+                  onClick={handleBackClick}
+                  className="bg-[#C61F1F] text-white px-6 py-2 rounded-md shadow-md hover:shadow-lg transition-all duration-300"
+                >
+                  Back
+                </button>
+              </div>
             </div>
           </div>
         </div>

@@ -4,6 +4,7 @@ import logo from "@/assets/images/logo.svg";
 import { NavLink } from "react-router-dom";
 import { FaRegNewspaper } from "react-icons/fa";
 import { LuTicket, LuSearch } from "react-icons/lu";
+import { HiOutlineSave } from "react-icons/hi";
 
 
 const Header = () => {
@@ -15,8 +16,8 @@ const Header = () => {
             <img src={logo} alt="Logo" />
           </div>
           <div>
-            <ul
-              className="flex gap-10 max-[750px]:absolute max-[750px]:top-[60px] max-[750px]:left-0 max-[750px]:flex-col max-[750px]:bg-white max-[750px]:shadow-md max-[750px]:w-full max-[750px]:p-5 max-[750px]:gap-3"
+            <ul className="flex gap-10 max-[750px]:absolute max-[750px]:top-[60px] max-[750px]:left-0 max-[750px]:flex-col max-[750px]:bg-white max-[750px]:shadow-md max-[750px]:w-full max-[750px]:p-5 max-[750px]:gap-3
+             "
             >
               <li>
                 <NavLink
@@ -60,6 +61,17 @@ const Header = () => {
                 >
                   <LuSearch className="w-6 h-6"/>
                   <span>Search</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  className={({ isActive }) =>
+                    `flex flex-col items-center  ${isActive ? "text-[#C61F1F]" : "text-gray-700"}`
+                  }
+                  to="/saved"
+                >
+                  <HiOutlineSave className="w-6 h-6"/>
+                  <span>Saved</span>
                 </NavLink>
               </li>
             </ul>

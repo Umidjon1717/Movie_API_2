@@ -8,7 +8,7 @@ import face from "@/assets/images/facebook-circle-line.png";
 
 const Footer = () => {
   return (
-    <footer style={{ backgroundColor: "#111111", color: "white" }} className="py-8 pt-20">
+    <footer style={{ backgroundColor: "#111111", color: "white" }} className="py-8 pt-20 pr-8">
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap justify-between items-center mb-6">
           <div className="mb-4 md:mb-0">
@@ -56,7 +56,7 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-3">Quick Links</h3>
             <ul>
               <li className="mb-2">
-                <img src={store} alt="" />
+                <img  src={store} alt="" />
               </li>
               <li className="mb-2">
                 <img src={play} alt="" />

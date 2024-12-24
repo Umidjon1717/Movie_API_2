@@ -13,9 +13,6 @@ const Latest = () => {
   const [genres, setGenres] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState([]);
 
-
-  
-
   useEffect(() => {
     request
       .get("/genre/movie/list")
@@ -23,9 +20,9 @@ const Latest = () => {
       .catch((err) => console.error("Error fetching genres:", err));
   }, []);
 
-  useEffect(()=>{
-    setPage(1)
-  }, [selectedGenre])
+  useEffect(() => {
+    setPage(1);
+  }, [selectedGenre]);
 
   useEffect(() => {
     request("/discover/movie", {
@@ -67,14 +64,14 @@ const Latest = () => {
           onChange={handleChange}
           sx={{
             "& .MuiPaginationItem-root": {
-              color: "white", 
+              color: "white",
             },
             "& .MuiPaginationItem-root.Mui-selected": {
-              backgroundColor: "white", 
-              color: "#C61F1F", 
+              backgroundColor: "white",
+              color: "#C61F1F",
             },
             "& .MuiPaginationItem-root:hover": {
-              backgroundColor: "#C61F1F", 
+              backgroundColor: "#C61F1F",
               color: "white",
             },
           }}
